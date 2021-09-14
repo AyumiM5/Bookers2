@@ -1,0 +1,9 @@
+<h1>Book detail</h1>
+
+<div>
+  <p>ユーザーネーム：<%= @book.user.name %></p>
+  <p>ショップ名：<%= @book.title %></p>
+  <p>説明：<%= @book.body %></p>
+  <%= link_to "Edit" , edit_book_path(@book) %>
+  <%= link_to "Destroy" , book_path(@book), method: :delete %>
+</div>

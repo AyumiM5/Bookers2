@@ -1,0 +1,18 @@
+<div>
+  <h1>User info</h1>
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+  <h3>name:<%= @user.name %></h3>
+  <h3>introduction:<%= @user.introduction %></h3>
+  <%= link_to "編集", edit_user_path(@user) %>
+</div>
+
+
+<div>
+  <h1>Books</h1>
+  <% @books.each do |book| %>
+  <div>
+    <p>Title：<%= book.title %></p>
+    <p>Opinion：<%= book.body %></p>
+  </div>
+  <% end %>
+</div>

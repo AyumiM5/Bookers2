@@ -1,9 +1,23 @@
-<h1>Book detail</h1>
-
-<div>
-  <p>ユーザーネーム：<%= @book.user.name %></p>
-  <p>ショップ名：<%= @book.title %></p>
-  <p>説明：<%= @book.body %></p>
-  <%= link_to "Edit" , edit_book_path(@book) %>
-  <%= link_to "Destroy" , book_path(@book), method: :delete %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <%= render 'users/list', user: @user %>
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table tabel-hover table-inverse">
+        <tbody>
+          <tr>
+            <td>
+            <%= attachment_image_tag @book.user, :profile_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg" %><br />
+            <%= link_to "#{@book.user.name}", user_path(@book.user.id) %>
+            </td>
+            <td><%= link_to "#{@book.title}", book_path(@book.id) %></td>
+            <td><%= @book.body %></td>
+            <td><%= link_to "Edit" , edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to "Destroy" , book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn btn-sm btn-danger" %></td>
+          </tr>
+        </tr>
+      </table>
+      
+    </div>
+  </div>
 </div>

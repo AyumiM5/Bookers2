@@ -1,12 +1,25 @@
-<h1>User info</h1>
-<%= form_with model:@user, local: true do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  <%= f.label :Image %>
-  <%= f.attachment_field :profile_image, autofocus: true %>
-  <%= f.label :introduction %>
-  <%= f.text_field :introduction, autofocus: true %>
-
-  <%= f.submit 'Update User' %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
+      <%= form_with model:@user, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :Image %><br />
+        <%= f.attachment_field :profile_image, autofocus: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :introduction %><br />
+        <%= f.text_area :introduction, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="actions">
+        <%= f.submit 'Update User', class: "btn btn-secondary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

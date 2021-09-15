@@ -18,6 +18,21 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
-div.field {
+div.field, div.actions {
  margin-bottom: 10px;
 }
+
+div.form-group {
+ margin-bottom: 16px;
+}
+
+.row {
+ margin-right: -15px;
+ margin-left: -15px;
+}
+
+.notice, .alert {
+ color: green;
+ margin-bottom: 16px;
+}
+

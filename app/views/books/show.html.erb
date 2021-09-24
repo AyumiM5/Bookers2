@@ -13,8 +13,26 @@
             <td><%= link_to "#{@book.title}", book_path(@book.id) %></td>
             <td><%= @book.body %></td>
             <% if @book.user_id == current_user.id %>
-            <td><%= link_to "Edit" , edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
-            <td><%= link_to "Destroy" , book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn btn-sm btn-danger" %></td>
+              <td><%= link_to "Edit" , edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
+              <td><%= link_to "Destroy" , book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn btn-sm btn-danger" %></td>
+            <% elsif @book.favorited_by?(current_user)  %>
+              <td>
+                <%= link_to book_favorites_path(@book), method: :delete do %>
+                <span class="like-btn">♥<%= @book.favorites.count %></span>
+                <% end %>
+              </td>
+              <td>
+                コメント数<%= @book.book_comments.count %>
+              </td>
+            <% else %>
+              <td>
+                <%= link_to book_favorites_path(@book), method: :post do %>
+                <span class="unlike-btn">♥<%= @book.favorites.count %></span>
+                <% end %>
+              </td>
+              <td>
+                コメント数<%= @book.book_comments.count %>
+              </td>
             <% end %>
           </tr>
         </tr>

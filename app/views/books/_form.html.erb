@@ -1,0 +1,13 @@
+  <%= form_with model:book, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :opinion %><br />
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-sm btn-success" %>
+  </div>
+  <% end %>

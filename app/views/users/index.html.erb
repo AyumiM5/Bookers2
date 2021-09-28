@@ -13,6 +13,9 @@
             <th>image</th>
             <th>name</th>
             <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -22,6 +25,13 @@
             <%= attachment_image_tag user, :profile_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg" %>
             </td>
             <td><%= user.name %></td>
+            <td>フォロー数:<%= user.following.count %></td>
+            <td>フォロワー数:<%= user.followers.count %></td>
+            <td>
+              <% if user != current_user %>
+              <%= render "follow", user: user %>
+              <% end %>
+            </td>
             <td><%= link_to "Show", user_path(user.id) %></td>
           </tr>
           <% end %>

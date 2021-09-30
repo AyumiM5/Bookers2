@@ -52,5 +52,6 @@ class SearchesController < ApplicationController
     when 'partical'
       partical(model, value)
     end
+  end
   
 end

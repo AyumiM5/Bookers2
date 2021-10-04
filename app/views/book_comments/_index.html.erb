@@ -1,0 +1,15 @@
+  <table class="table tabel-hover table-inverse">
+    <% book.book_comments.each do |book_comment| %>
+    <tr>
+      <td>
+        <%= attachment_image_tag book_comment.user, :profile_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg" %><br />
+        <%= link_to "#{book_comment.user.name}", user_path(book_comment.user.id) %></td>
+      <td><%= book_comment.comment %></td>
+      <% if book_comment.user.id == current_user.id %>
+        <td>
+          <%= link_to "Destroy", book_book_comment_path(book_comment.book_id, book_comment.id), method: :delete, class: "btn btn-sm btn-danger", remote: true %>
+        </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>

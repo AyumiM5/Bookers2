@@ -7,9 +7,19 @@
     <%= f.label :opinion %><br />
     <%= f.text_area :body, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= f.label :rate %><br />
-    <%= 
+  <div class="form-group" id="star">
+    <%= f.label :rate %>
+    <%= f.hidden_field :rate, id: :review_star %>
+    <script>
+      $('#star').raty({
+        size     : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        scoreName: 'post[rate]',
+        half: true,
+      });
+    </script>
   </div>
   <div class="actions">
     <%= f.submit class: "btn btn-sm btn-success" %>

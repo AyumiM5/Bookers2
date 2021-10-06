@@ -5,7 +5,34 @@
       <div  class="errors">
         <%= render "layouts/errors", obj: @book %>
       </div>
-      <%= render "form", book: @book %>
+      <%= form_with model:@book, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :title %><br />
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :opinion %><br />
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+      <div>
+        <span id="star-rate-<%= @book.id %>"></span>
+        <script>
+          $('#star-rate-<%= @book.id %>').raty({
+            size: 36,
+            starOff: "<%= asset_path('star-off.png') %>",
+            starOn: "<%= asset_path('star-on.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            half: true,
+            readOnly: true,
+            score: <%= @book.rate %>,
+          });
+        </script>
+      </div>
+      <div class="actions">
+        <%= f.submit class: "btn btn-sm btn-success" %>
+      </div>
+      <% end %>
+
       <%= link_to "Show", book_path(@book) %> | <%= link_to "Back", books_path %>
     </div>
   </div>

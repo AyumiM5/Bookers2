@@ -8,7 +8,7 @@
     <%= f.text_area :body, class: "form-control" %>
   </div>
   <div class="form-group" id="star">
-    <%= f.label :rate %>
+    <%= f.label :rate, "星評価：" %>
     <%= f.hidden_field :rate, id: :review_star %>
     <script>
       $('#star').raty({
@@ -16,7 +16,7 @@
         starOff:  '<%= asset_path('star-off.png') %>',
         starOn : '<%= asset_path('star-on.png') %>',
         starHalf: '<%= asset_path('star-half.png') %>',
-        scoreName: 'post[rate]',
+        scoreName: 'book[rate]',
         half: true,
       });
     </script>

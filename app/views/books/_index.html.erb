@@ -1,5 +1,6 @@
-    <div class="col-md-8 offset-md-1">
-      <h2>Books</h2>
+    <%= link_to "新しい順", books_path(sort_create: "true") %>
+    <span>|</span>
+    <%= link_to "評価の高い順", books_path(sort_rank: "true") %>
       <table class="table tabel-hover table-inverse">
         <thead>
           <tr>
@@ -45,4 +46,4 @@
           <% end %>
         </tr>
       </table>
-    </div>
+    

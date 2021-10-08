@@ -8,6 +8,9 @@
       <h2 class="mt-3">New book</h2>
       <%= render 'form', book: Book.new %>
     </div>
-    <%= render "index", books: @books %>
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <%= render "index", books: @books %>
+    </div>
   </div>
 </div>

@@ -38,13 +38,7 @@ class BooksController < ApplicationController
   end
   
   def index
-    if params[:sort_create]
-      @books = Book.all.order(created_at: "DESC")
-    elsif params[:sort_rank]
-      @books = Book.all.order(rate: "DESC")
-    else
-      @books = Book.all
-    end
+    @books = Book.all.order(params[:sort])
     @user = User.find(current_user.id)
     @book = Book.new
   end

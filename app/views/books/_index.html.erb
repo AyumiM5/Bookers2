@@ -1,12 +1,10 @@
-    <%= link_to "新しい順", books_path(sort_create: "true") %>
-    <span>|</span>
-    <%= link_to "評価の高い順", books_path(sort_rank: "true") %>
       <table class="table tabel-hover table-inverse">
         <thead>
           <tr>
             <th></th>
             <th>image</th>
             <th>Opinion</th>
+            <th>Category</th>
             <th></th>
             <th></th>
             <th></th>
@@ -22,6 +20,7 @@
             </td>
             <td><%= link_to "#{book.title}", book_path(book.id) %></td>
             <td><%= book.body %></td>
+            <td><%= book.category %></td>
             <td class="favorite_buttons">
               <%= render "favorites/favorite-buttons", book: book %>
             </td>

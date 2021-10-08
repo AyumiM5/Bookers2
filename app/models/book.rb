@@ -6,6 +6,7 @@ class Book < ApplicationRecord
   
   validates :title, presence: true
   validates :body, presence: true, length: { maximum: 200 }
+  validates :category, presence: true
     
   validates :rate, numericality: {
     less_than_or_equal_to: 5,

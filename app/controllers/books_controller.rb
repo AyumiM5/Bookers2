@@ -38,9 +38,13 @@ class BooksController < ApplicationController
   end
   
   def index
-    @books = Book.all.order(params[:sort])
+    @q = Book.ransack(params[:q])
+    @books = @q.result(distinct: true).all.order(params[:sort])
     @user = User.find(current_user.id)
     @book = Book.new
+  end
+  
+  def index_category
   end
   
   def show
@@ -58,7 +62,7 @@ class BooksController < ApplicationController
   private
   
   def book_params
-    params.require(:book).permit(:title, :body, :rate, :category)
+    params.require(:book).permit(:title, :body, :rate, :category,)
   end
   
 end

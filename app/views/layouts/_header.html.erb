@@ -19,6 +19,10 @@
               <li class="nav-item">
                 <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-white' %>
               </li class="nav-item">
+              <%= search_form_for @q do |f| %>
+                <%= f.search_field :category_cont %>
+                <%= f.submit "検索" %>
+              <% end %>
               <% else %>
               <li class="nav-item">
                 <%= link_to "Home", root_path, class: 'fas fa-home nav-link text-white' %>

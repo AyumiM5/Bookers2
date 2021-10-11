@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   
   def set_search
     @q = Book.ransack(params[:q])
-    @books = @q.result
+    @books = @q.result(distinct: true)
   end
   
   protected
